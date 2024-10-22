@@ -44,6 +44,10 @@ if (!function_exists('DefaultImage')) {
 }
 /* =====
     Store File and Return path
+    $image is concent of file
+    $image_name is name of image or should be blank for encrypted name
+    $upath ida path of file or default should be images
+    $prefix is add to file name which is basically module name
    =====*/
 if (!function_exists('UploadImage')) {
     function UploadImage($image, $image_name = '', $upath = '', $prefix = '')
@@ -73,6 +77,7 @@ if (!function_exists('UploadImage')) {
 }
 /* =====
     Delete Image
+    $delete_type will delete folder of image
    =====*/
 if (!function_exists('ImageDelete')) {
     function ImageDelete($img, $delete_type = 'folder')

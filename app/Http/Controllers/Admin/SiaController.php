@@ -81,12 +81,12 @@ class SiaController extends Controller
         ];
 
         if ($request->hasFile('logo')) {
-            if (!empty($sia->image)) {
-                // $existingImagePath = storage_path('app/public/') . $sia->image;
+            if (!empty($sia->logo)) {
+                // $existingImagePath = storage_path('app/public/') . $sia->logo;
                 // if (file_exists($existingImagePath)) {
                 //     unlink($existingImagePath);
                 // }
-                ImageDelete($sia->image, '');
+                ImageDelete($sia->logo, '');
             }
 
             // $foldername = 'sia_logos';

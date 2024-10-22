@@ -10,8 +10,7 @@
                         <div class="profile-form-section">
                             <div class="profile-form-part">
                                 <div class="setting-middle-section">
-                                    <form class="items-center" action="{{ route('admin.sia_licence.update', $sia->id) }}"
-                                        method="POST" enctype="multipart/form-data">
+                                    <form class="items-center" action="{{ route('admin.sia_licence.update', $sia->id) }}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="flex-center-between setting-title-border">
                                             <div class="setting-h-con">
@@ -46,10 +45,10 @@
                                             <div class="setting-row">
                                                 <div class="set-lebal-title">{{ __('Current Logo')}}</div>
                                                 <div class="set-inputfield">
-                                                    <img src="{{ asset('storage/' . $sia->logo) }}" />
+                                                    <img src="{{ GetStoragePath($sia->logo) }}" />
                                                 </div>
-                                            </div> 
-                                       
+                                            </div>
+
                                             <div class="setting-row status-setting">
                                                 <div class="set-lebal-title">{{ __('Status') }}</div>
                                                 <div class="set-inputfield">
