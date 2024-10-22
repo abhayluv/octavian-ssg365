@@ -1,0 +1,291 @@
+@media (max-width: 1800px) {
+  .staff-support-right-panel {max-width: 400px;}
+  .three-col-chart .chart-box-flex {flex-wrap: wrap;}
+  .three-col-chart .chart-container {display: flex; justify-content: center;}
+  .three-col-chart .chart-col {width: 50%;}
+  .three-col-chart .chart-container canvas {width: 100% !important;  height: 100% !important;}
+  .three-col-chart .left-chart {width: 100%;}
+  .three-col-chart .chart-detail {width: 100%;}
+}   
+
+@media (max-width: 1650px) {
+   
+  .user-avtar-img{flex-shrink: 0;}
+  .staff-camp-appointment-tabsec .appoint-date{flex: 1;}
+  .staff-camp-appointment-tabsec .new-onboard-date span{line-height: 20px;  font-size: 15px;}
+  .staff-camp-appointment-tabsec .new-onboard-date h6{margin-bottom: 8px; font-size: 16px;}
+  /*-------*/
+  .staff-task-right-panel {width: 265px;}
+  .staff-task-box-flex .staff-task-date {width: 100%;}
+  .staff-support-right-panel {max-width: 400px;}
+  .ticket-list-box a {padding: 16px 16px;}
+  .chart-box-padd {padding: 20px 15px 15px 15px;}
+  .chart-sec .col-md-6 .chart-box-flex {flex-wrap: wrap;}
+  .chart-sec .col-md-6 .chart-box-flex .box-widht-50 {width: 100%;}
+  .staff-overview-lr-sec .staff-overview-left-panel, .staff-overview-lr-sec .staff-overview-right-panel {width: 50%; max-width: inherit; flex-shrink: inherit;}
+
+}   
+
+@media (max-width: 1599px) {
+
+    .user-avtar-img { width: 50px; height: 50px;}
+    .campaing-box-con h5{line-height: 23px;font-size: 16px;}
+    .new-staff-camping-left .user-avtar-img {margin-bottom: 10px;}
+    .campaing-box-con span{display: block;line-height: 23px;}
+    .new-staff-camping-left .campaing-box-con span.live-badge{width: max-content;padding: 0px 13px;margin-top: 10px;}
+    .new-staff-camping-left .campaing-box-con span{line-height: 25px;}
+    .staff-camp-appointment-tabsec .new-onboard-date h6, .staff-camp-appointment-tabsec .new-onboard-date span, .staff-camp-appointment-tabsec .associated-camping h6 { font-size: 16px;}
+    .staff-camp-appointment-tabsec .appoint-date span{line-height: 19px;font-size: 14px;}
+    .staff-camp-appointment-tabsec .new-onboard-date h6{margin-bottom: 10px;}
+    .staff-camp-appointment-tabsec .appoint-date .brand-icon img{height: 30px;}
+    .staff-camp-appointment-tabsec .appoint-date .brand-icon span{    width: 30px; height: 30px;}
+    .staff-camp-appointment-tabsec .app-time-sec {gap: 20px;}
+    /*------------------*/
+    .staff-task-list .board-flex {margin-left: -8px; margin-right: -8px;}
+    .staff-task-list .board-col {padding-left: 8px; padding-right: 8px;}
+    .staff-task-list .board-listing li a {padding: 16px 10px 16px 10px;}
+    .staff-task-box-flex .staff-task-date {padding-top: 4px; padding-bottom: 4px;}
+    .staff-task-border {padding-bottom: 9px; margin-bottom: 8px;}
+    .staff-task-right-panel {width: 215px;}
+    .staff-taskcode .cop-id, .staff-task-date data, .staff-userphoto-name h6, .teamname-des h6, .staff-task-list .board-title h6 {font-size: var(--ft-14);}
+    .staff-task-list .board-title .board-num, .staff-task-border h5, .staff-team-listing h3 {font-size:var(--ft-16);}
+    .staff-team-listing, .staff-team-listing span, .staff-task-list .board-title .board-num, .tagmess {font-size: var(--ft-12);}
+    .staff-task-date h6 {margin-bottom: 0px;}
+    .staff-userphoto-name {padding-top: 3px;}
+    .staff-team-listing span, .staff-task-list .board-title .board-num {min-width: 20px; height: 20px; border-radius: 6px;}
+    .team-avtarimg {width: 32px; height: 32px;}
+    .staff-support-right-panel {max-width: 320px;}
+    .three-col-chart .chart-container canvas { width: 100% !important; }
+    .camp-bud-chart-box .bug-user-num-list  {width: 100%; display: flex; justify-content: space-between;}
+    .camp-bud-chart-box .bug-user-num-list .bug-count-box  {margin-bottom: 0px;}
+    .client-lead-char-box .overview-box-widht {align-items: flex-start;}
+    .client-lead-char-box .clientlead-flex {gap: 15px 32px;}
+
+
+}
+@media (max-width: 1499px) {
+
+    .staff-camp-appointment-tabsec .app-time-sec{display: grid;grid-template-columns: 1fr 1fr;}
+
+
+}
+@media (max-width: 1360px) {
+   .notifications-page-sec .camp-midd-sec { padding-left: 15px; padding-right: 15px;}
+   /*------------*/
+   .three-col-chart .col-md-4 {width: 50%; margin-bottom: 30px;}
+   .three-col-chart .col-md-4:last-child {margin-bottom: 0px;}
+   
+}   
+
+@media only screen and (min-width: 1200px) and (max-width:1299px) {
+
+  /*------*/
+  .total-ravanue-flex {flex-wrap: wrap; flex-direction: column; align-items: flex-start;}
+  .total-ravanue-flex .total-ravenue-genrate {margin-bottom: 0px;}
+  .totla-ravanue-chart {width: 100%;}
+
+}   
+
+@media (max-width: 1299px) {
+
+  /*----------*/
+  .header-title-tabs {align-items: flex-start;}
+  .billing-header-tabs .graybg-tab li .nav-link {font-size: 14px;}
+   
+}
+
+
+@media (max-width: 1199px) {
+  .notifications-page-sec .camp-midd-sec, .notifications-tab { padding-left: 0px; padding-right: 0px;}
+  .notifications-tab{padding-bottom: 0px;padding-top: 10px;}
+  .new-camp-data {padding: 15px;}
+  .new-appointment-dass-midd-padd .app-viewbtn.show-viewbtn .btn{font-size: 14px;}
+  .new-appointment-dass-midd-padd .staff-camp-appointment-tabsec .app-time-sec {display: grid;  grid-template-columns: 1fr 1fr  1fr 1fr;}
+  /*-----------*/
+  .total-ravanue-flex {flex-wrap: wrap; flex-direction: column; align-items: flex-start;}
+  .total-ravanue-flex .total-ravenue-genrate {margin-bottom: 0px;}
+  .totla-ravanue-chart {width: 100%;}
+  
+
+} 
+
+@media only screen and (min-width:992px) and (max-width:1199px)
+{	
+	
+}
+
+@media (max-width: 1024px) {
+
+}
+
+@media (max-width: 991px) {
+
+  .camp-create-sec .camp-tabs-part{z-index: 3;}
+  /*--------*/
+  .graybg-tab li .nav-link {font-size: var(--ft-14);}
+  .billing-sub-tabs {flex-direction: column; align-items: flex-start;}
+  .billing-sub-tabs .billing-platform-tabs, .billing-sub-tabs .top-search-filter {width: 100%;}
+  .billing-sub-tabs .top-search-filter .camp-search {width: 100%;}
+  .billing-sub-tabs .top-search-filter .camp-search input  {width: 100%;}
+  .billing-sub-tabs .billing-platform-tabs {margin-bottom: 10px;}
+  .staff-billing-header .header-row {flex-wrap: wrap;}
+  .billing-header-tabs {margin-left: 0px;}
+  .billing-header-row {margin-top: 7px;}
+  .billing-header-row .date-select-top {gap: 10px;}
+  .staff-task-right-panel {width: auto; min-height: inherit; margin-top: 0px; padding-left: 0px; border-left: none;}
+  .staff-task-lr-panel {flex-wrap: wrap;}
+  .staff-task-list .board-flex {min-height: inherit;}
+  .staff-task-left-panel ul {padding-bottom: 10px; flex-wrap: nowrap; overflow-x: auto;  -webkit-overflow-scrolling: touch;}
+  .staff-task-left-panel li button {white-space: nowrap;}
+  .staff-support-flex {flex-wrap: wrap;}
+  .staff-support-right-panel {max-width: inherit; width: 100%;}
+  .totalbox {padding: 24px 15px;}
+  .selebox-email-phone-flex {flex-wrap: wrap;}
+  .project-page-section .tab-support-chart .todo-comp-tabs {margin-bottom: 20px;}
+  .chart-sec .col-md-6 {margin-bottom: 30px;}
+  .chart-sec .col-md-6:last-child {margin-bottom: 0px;}
+  .staff-support-left-panel .tab-support-chart .task-detail-sec  {margin-bottom: 10px;}
+  .chart-box-flex .box-widht-50 {max-width: 310px; margin-left: auto; margin-right: auto;}
+  .chart-sec .col-md-6 {width: 100%;}
+  .staff-overview-lr-sec .staff-overview-left-panel, .staff-overview-lr-sec .staff-overview-right-panel {width: 100%;}
+  .client-lead-char-box .overview-box-widht {align-items:center;}
+  .camp-bud-chart-box .bug-user-num-list {display: initial; width: auto;} 
+  .camp-bud-chart-box .campstaff-bud-flex {flex-wrap: nowrap;}
+  .camp-bud-chart-box .bug-user-num-list .bug-count-box {margin-bottom: 24px;}
+  .camp-bud-chart-box .bug-user-num-list .bug-count-box:last-child {margin-bottom: 0px;}
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px)
+{	
+	.appointment-page-sec .app-date-flex{ align-items: flex-start;}
+}
+
+@media (max-width: 767px) {
+  .notifications-tab{overflow: hidden;margin-bottom: 30px;padding-left: 0px;padding-right: 0px;}
+  .todo-comp-tabs, .staff-campaigns-page .todo-comp-tabs{overflow: hidden;}
+  .staff-campaigns-page .todo-comp-tabs .nav-link{white-space: nowrap;}
+  .notifications-tab .todo-comp-tabs  ul, .staff-campaigns-page .todo-comp-tabs ul { flex-wrap: nowrap;  overflow-x: auto;  -webkit-overflow-scrolling: touch; padding-bottom: 10px;}
+  .notifications-page-sec .tasks-listingbox .task-cont, .notifications-page-sec .tasks-listingbox .task-comm-date {font-size: inherit;}
+  header.main-header.notifications-page-sec-tab{margin-bottom: 30px;}
+  .notifications-inner-sec.mb-2, .notificationcomp.mb-2{margin-bottom: 0px !important;} 
+  .staff-campaigns-page .new-staff-camp-user .task-cont, .staff-campaigns-page .new-spen-month-date .spent-to-date p,  .staff-campaigns-page .new-spen-month-date .spent-to-date label{font-size: 12px;}
+  .new-plan-txt h6{font-size: 14px;}
+  .onbording span, .new-brand-icon h6, .new-plan-txt h6, .new-creat-on-date{font-size: 12px;}
+  .new-brand-icon img{width: 29px;}
+  .new-onbording {gap: 13px;}
+  .staff-camping-overview-mb-sec .brand-div{justify-content: space-between;width: 100%;}
+  .staff-camp-appointment .create-new-task-btn a{width: fit-content;}
+  .staff-camp-appointment-tabsec .new-onboard-date h6 {margin-bottom: 0px;}
+  .new-appointment-dass-midd-padd .staff-camp-appointment-tabsec .app-time-sec {display: grid;  grid-template-columns: 1fr 1fr ;}
+  .new-appointment-top-sec {flex-wrap: wrap; gap: 10px; padding-top: 5px;}
+  /*----------*/
+  .table-tabs-sec {margin-bottom: 10px;}
+  .customer-list-box {padding: 10px 10px;}
+  .cust-box-text {font-size: var(--ft-14); line-height: normal;}
+  .customers-page-sec .datesort-sec .date-select-top {gap: 10px;}
+  .days-select .select2-container--default .select2-selection--single .select2-selection__rendered {font-size: var(--ft-14);}
+  .customers-page-sec .top-search-filter {gap: 10px;}
+  .customers-page-sec .select2-container--default .select2-selection--single .select2-selection__rendered {line-height: 42px;}
+  .customers-page-sec .select2-container--default .select2-selection--single .select2-selection__arrow {height: 44px;}
+  .customers-page-sec .select2-container .select2-selection--single {height: 44px;}
+  .staff-billing-header .date-select-top {flex-wrap: wrap; gap: 10px;}
+  .staff-billing-header .top-search-filter {gap: 10px;}
+  .staff-billing-header .select2-container--default .select2-selection--single .select2-selection__rendered {line-height: 42px;}
+  .staff-billing-header .select2-container--default .select2-selection--single .select2-selection__arrow {height: 44px;}
+  .staff-billing-header .select2-container .select2-selection--single {height: 44px;}
+  .graybg-tab {border-radius: 8px;}
+  .graybg-tab li .nav-link {font-size: var(--ft-12); padding: 8px 10px; line-height: 18px; border-radius: 4px;}
+  .header-title-tabs {flex-direction: column;}
+  .billing-header-row {margin-top: 0px;}
+  .billing-header-tabs {width: 100%;}
+  .billing-header-tabs .graybg-tab {display: flex;}
+  .billing-sub-tabs .top-search-filter {gap: 5px;}
+  .billing-sub-tabs .billing-platform-tabs {margin-bottom: 3px;}
+  .billing-platform-tabs ul {padding-bottom: 10px; flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .billing-platform-tabs .tasktodocomp .nav-link {white-space: nowrap;}
+  .filter-search .search-form .form-input {width: 100%;}
+  .staff-task-list .board-col {width: 100%;}
+  .staff-task-box-flex .staff-task-date {width: 50%;}
+  .staff-search-addbtn {flex-wrap: wrap;}
+  .staff-search-addbtn .search-form .form-input {width: 100%;}
+  .staff-search-addbtn .header-btn {width: 100%;}
+  .chart-box-flex .box-widht-50 {width: 100%;}
+  .chart-box-flex .box-widht-50 { max-width: 244px;}
+  .camp-bud-chart-box .bug-user-num-list {width: 100%;  display: flex; justify-content: space-between; }
+  .total-ravanue-flex {flex-wrap: wrap; flex-direction: column; align-items: flex-start;}
+  .total-ravanue-flex .total-ravenue-genrate {margin-bottom: 0px;}
+  .tot-rav-flex {gap: 5px 20px; flex-direction: column; align-items: flex-start;}
+  .total-ravenue-genrate h2 {margin-bottom: 0px;}
+  .tot-rav-flex {font-size: var(--ft-16);}
+  .chart-phone-email ul {gap:10px 20px;}
+  .overview-chart-det h3 {font-size: 24px;}
+  .client-lead-char-box .overview-box-widht .left-chart {margin-left: auto; margin-right: auto;}
+  .camp-bud-chart-box .campstaff-bud-flex {flex-wrap: wrap;}
+  .camp-bud-chart-box .bug-user-num-list {flex-wrap: wrap;}
+  .camp-bud-chart-box .bug-user-num-list .bug-count-box {width: 100%;}
+  .hed-ovr-mob-flex-wrap {flex-wrap: wrap; gap: 10px;}
+  .rev-chart-pro-price {font-size: var(--ft-16);}
+  .totla-ravanue-chart {width: 100%;}
+  .comp-pricing-flex .ac-pricing {width: 45%; }
+  .comp-pricing-flex {gap: 15px; padding-top: 15px;}
+  .company-billing-box-mb .ac-con h4 {font-size: var(--ft-14);}
+  .ac-campaign-btn {flex-wrap: wrap;}
+  .chart-phone-email li {font-size: var(--ft-14);}
+  .company-appoinment .camp-app-tab-btn {margin-bottom: 0px !important; gap: 10px;}
+  .mobile-tab-profile {display: flex !important;}
+  .mb-pb-0 {padding-bottom: 0px;}
+  .camping-filter-sort-by.mob-inline-flex {display: inline-flex !important; flex-wrap: wrap; gap:0px 10px; margin-bottom: 7px;}
+  .camp-select.sel-ft-16 .select2-container .select2-selection--single {height: 44px;}
+  .camp-select.sel-ft-16 .select2-container--default .select2-selection--single .select2-selection__rendered {line-height: 43px;}
+
+}
+
+@media (max-width: 575px) {
+   
+  .notifications-page-sec .tasks-listingbox .taskcomment{display: block;}
+  .notifications-page-sec .task-det{flex: 1;}
+  .notific-comn-date{justify-content: space-between;}
+  .new-spen-month-date.d-flex, .shortage-sec.d-flex {display: block !important;}
+  .new-onbording{margin-bottom: 8px;}
+  .staff-camp-appointment-tabsec .new-onboard-date h6, .staff-camp-appointment-tabsec .new-onboard-date span, .staff-camp-appointment-tabsec .associated-camping h6{font-size: 14px;}
+  .staff-camp-appointment-tabsec .month-title h6{font-size:18px;}
+ /*--------*/
+  .chart-box-flex {flex-wrap: wrap;}
+  .three-col-chart .col-md-4 {width: 100%;}
+
+
+}
+
+@media (max-width: 479px) {
+	
+  .new-onbording.d-flex, .camping-top-search, .camping-filter-sort-by, .new-staff-camp-overview-secbtn.d-flex, .new-staff-bilding-section .table-heading-div {display: block !important;}
+  .onbording, .new-brand-icon, .new-creat-on-date, .search-form.camp-search{margin-bottom: 8px;}
+  .camping-top-search .camp-search input {max-width: 220px;}
+  .camping-top-search .header-btn, .camping-filter-sort-by .filterbtn .btn{max-width: fit-content;}
+  .new-staff-camp-overview-secbtn .select2-container--default .select2-selection--single{width: fit-content; margin-bottom: 8px; position: relative;}
+  .new-total-leadsbox  .totalbox  {padding: 13px;}
+  .new-staff-bilding-section .ac-campaign-btn .btn {line-height: 17px;}
+  .new-staff-cam-billing{margin-top: 8px;}
+  .new-staff-cam-billing .btn{padding: 6px 12px;}
+  .staff-camp-appointment-tabsec .appoint-date {padding-right: 0px;margin-bottom: 20px;border-right:0px;}
+  .staff-camp-appointment-tabsec .app-time-sec {display: block;}
+  /*--------*/
+  .company-full-width .camping-filter-sort-by {display: flex !important; flex-wrap: wrap; gap: 10px;}
+  
+}
+
+@media (max-width: 360px) {
+
+  .staff-camping-overview-mb-sec .brand-div{display: block;}
+  .staff-camping-overview-mb-sec .brand-info {margin-bottom: 10px;}
+  .new-spen-month-date .spent-to-date{text-align: left;}
+  /*---------*/
+  .cust-box-text {font-size: var(--ft-12);}
+
+
+}
+
+
+	
+img {max-width: 100%; height: auto;}

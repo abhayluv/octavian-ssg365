@@ -1,0 +1,83 @@
+@media (max-width: 1650px) {
+    
+ }   
+ 
+ @media (max-width: 1599px) {
+   
+ }
+ 
+ @media (max-width: 1480px) {
+  
+    
+ }
+ 
+ @media (max-width: 1360px) {
+   
+ }   
+ 
+ @media only screen and (min-width: 1200px) and (max-width:1299px) {
+    
+ 
+ }   
+ 
+ @media (max-width: 1299px) {
+ 
+ }
+ 
+ 
+ @media (max-width: 1199px) {
+    
+ 
+ }
+ 
+ @media only screen and (min-width:992px) and (max-width:1199px)
+ {	
+     
+ }
+ 
+ @media (max-width: 1024px) {
+ 
+ }
+ 
+ @media (max-width: 991px) {
+ 
+   .kbw-signature canvas {width: 100% !important;}
+   
+   
+ 
+ }
+ 
+ @media only screen and (min-width: 768px) and (max-width: 991px)
+ {	
+     
+ }
+ 
+ @media (max-width: 767px) {
+   
+  
+
+ }
+ 
+ @media (max-width: 575px) {
+    
+   
+ }
+ 
+ @media (max-width: 479px) {
+   
+    
+ }
+
+ @media (max-width: 390px) {
+
+    .select-users-list .log-reg-select {width: 100%;}
+
+ }   
+ 
+ @media (max-width: 360px) {
+ 
+    
+ 
+ }
+     
+ img {max-width: 100%; height: auto;}
