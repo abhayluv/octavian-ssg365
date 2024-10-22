@@ -17,7 +17,7 @@
                 <label class="form-label">{{ __('Email')}}</label>
                 <div class="form-input-icon">
                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"  placeholder="Enter your email" name="email" value="{{ old('email') }}" autocomplete="email" autofocus>
-                    <div class="form-mes-icon desk-none"><a href=""><img src="{{ asset('images/help-icon.svg')}}" alt=""></a></div>
+                    <div class="form-mes-icon desk-none"><img src="{{ asset('images/help-icon.svg')}}" alt="Email"></div>
                     @error('email')
                         <span class="invalid-feedback text-danger" role="alert">
                             <strong>{{ $message }}</strong>
@@ -29,7 +29,7 @@
                     <label class="form-label">{{ __('Password')}}</label>
                     <div class="form-input-icon">
                         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Enter your password" name="password" autocomplete="current-password">
-                        <div class="form-mes-icon"><a href=""><img src="{{ asset('images/eye-icon.svg')}}" alt=""></a></div>
+                        <div class="form-mes-icon" id="showPassword"><img src="{{ asset('images/eye-icon.svg')}}" alt="Password"></div>
                         @error('password')
                             <span class="invalid-feedback text-danger" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -54,4 +54,14 @@
     </div>
     </div>
 </div>
+@endsection
+@section('custom_javascript')
+<script>
+$('#showPassword').mouseover(function(){
+    document.getElementById('password').type = 'text';
+});
+$('#showPassword').mouseout(function(){
+    document.getElementById('password').type = 'password';
+});
+</script>
 @endsection
