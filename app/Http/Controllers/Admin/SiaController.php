@@ -18,13 +18,13 @@ class SiaController extends Controller
 
     public function index(Request $request)
     {
-        $query = $request->query();   
+        $query = $request->query();
         $title = 'Manage Sia Lincence';
-      
+
         $filterData['search'] = isset($query['search']) ? $query['search'] : '';
-        
+
         $sia_data = $this->sia_model->getList($filterData);
-        
+
         return view('admin.sialicence.index', compact('title', 'sia_data'));
     }
 
@@ -45,21 +45,23 @@ class SiaController extends Controller
             'licence_name' => $request->licence_name,
             'status' => $request->status
         ];
-        
-        if ($request->hasFile('logo')) {      
-            $foldername = 'sia_logos';
-            $image = $request->file('logo');
-            $path = Storage::putFile('public/' . $foldername, $image); 
-            $data['logo'] = str_replace('public/', '', $path);
+
+        $data['logo'] = '';
+        if ($request->hasFile('logo')) {
+            // $foldername = 'sia_logos';
+            // $image = $request->file('logo');
+            // $path = Storage::putFile('public/' . $foldername, $image); 
+            // $data['logo'] = str_replace('public/', '', $path);
+            $data['logo'] = UploadImage($request->file('logo'), '', '', 'sia');
         }
-                
+
         $store = $this->sia_model->insertData($data);
 
         return redirect()->route('admin.sia_licence.index')->with('success', 'Licence Created Successfully');
     }
 
     public function edit($id)
-    {  
+    {
         $title = 'Edit Sia Licence';
         $sia = $this->sia_model->singleData($id);
         return view('admin.sialicence.edit', compact('title', 'sia'));
@@ -80,16 +82,18 @@ class SiaController extends Controller
 
         if ($request->hasFile('logo')) {
             if (!empty($sia->image)) {
-                $existingImagePath = storage_path('app/public/') . $sia->image;
-                if (file_exists($existingImagePath)) {
-                    unlink($existingImagePath);
-                }
+                // $existingImagePath = storage_path('app/public/') . $sia->image;
+                // if (file_exists($existingImagePath)) {
+                //     unlink($existingImagePath);
+                // }
+                ImageDelete($sia->image, '');
             }
-        
-            $foldername = 'sia_logos';
-            $image = $request->file('logo');
-            $path = Storage::putFile('public/' . $foldername, $image); 
-            $data['logo'] = str_replace('public/', '', $path);
+
+            // $foldername = 'sia_logos';
+            // $image = $request->file('logo');
+            // $path = Storage::putFile('public/' . $foldername, $image);
+            // $data['logo'] = str_replace('public/', '', $path);
+            $data['logo'] = UploadImage($request->file('logo'), '', '', 'sia');
         }
 
 
@@ -101,8 +105,10 @@ class SiaController extends Controller
     public function destroy($id)
     {
         $sialicence = $this->sia_model->singleData($id);
-        if($sialicence)
-        {
+        if ($sialicence) {
+            if (!empty($sialicence->logo)) {
+                ImageDelete($sialicence->logo, '');
+            }
             $sialicence->delete();
         }
         return redirect()->route('admin.sia_licence.index')->with('success', 'Licence Record Deleted Successfully');

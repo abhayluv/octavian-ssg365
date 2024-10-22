@@ -15,8 +15,7 @@ use App\Http\Controllers\Auth\AuthController;
 // Route::get('/', [AuthController::class, 'index'])->name('login');
 Route::get('/', function () {
     return redirect()->route('login');
-}); 
-
+});
 
 Route::get('login', [AuthController::class, 'index'])->name('login');
 Route::post('verify', [AuthController::class, 'verify'])->name('verify_user');
@@ -57,7 +56,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::post('save', [IntroScreenController::class, 'save'])->name('save');
             Route::delete('{id}/delete', [IntroScreenController::class, 'destroy'])->name('delete');
         });
-
     });
 });
 

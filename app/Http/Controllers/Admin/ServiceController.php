@@ -18,15 +18,15 @@ class ServiceController extends Controller
 
     public function index(Request $request)
     {
-        $query = $request->query();   
+        $query = $request->query();
         $title = 'Manage Service';
         $filterData['search'] = isset($query['search']) ? $query['search'] : '';
-        
+
         $service_data = $this->service_model->getList($filterData);
-        
+
         return view('admin.service.index', compact('title', 'service_data'));
     }
-    
+
     public function create()
     {
         $title = 'Create Service';
@@ -44,21 +44,24 @@ class ServiceController extends Controller
             'service_name' => $request->service_name,
             'status' => $request->status
         ];
-        
-        if ($request->hasFile('image')) {      
-            $foldername = 'service_image';
-            $image = $request->file('image');
-            $path = Storage::putFile('public/' . $foldername, $image); 
-            $data['image'] = str_replace('public/', '', $path);
+
+        $data['image'] = '';
+        if ($request->hasFile('image')) {
+            // $foldername = 'service_image';
+            // $image = $request->file('image');
+            // $path = Storage::putFile('public/' . $foldername, $image); 
+            // $data['image'] = str_replace('public/', '', $path);
+
+            $data['image'] = UploadImage($request->file('image'), '', '', 'service');
         }
-        
+
         $store = $this->service_model->insertData($data);
 
         return redirect()->route('admin.manage_service.index')->with('success', 'Serivce Created Successfully');
     }
 
     public function edit($id)
-    {   
+    {
         $title = 'Edit Service';
         $service = $this->service_model->singleData($id);
         return view('admin.service.edit', compact('title', 'service'));
@@ -79,33 +82,35 @@ class ServiceController extends Controller
 
         if ($request->hasFile('image')) {
             if (!empty($service->image)) {
-                $existingImagePath = storage_path('app/public/') . $service->image;
-                if (file_exists($existingImagePath)) {
-                    unlink($existingImagePath);
-                }
+                // $existingImagePath = storage_path('app/public/') . $service->image;
+                // if (file_exists($existingImagePath)) {
+                //     unlink($existingImagePath);
+                // }
+                ImageDelete($service->image, '');
             }
-        
-            $foldername = 'service_image';
-            $image = $request->file('image');
-            $path = Storage::putFile('public/' . $foldername, $image); 
-            $data['image'] = str_replace('public/', '', $path);
+
+            // $foldername = 'service_image';
+            // $image = $request->file('image');
+            // $path = Storage::putFile('public/' . $foldername, $image);
+            // $data['image'] = str_replace('public/', '', $path);
+            $data['image'] = UploadImage($request->file('image'), '', '', 'service');
         }
 
         $update = $this->service_model->updateData($data, ['id' => $id]);
-        
+
         return redirect()->route('admin.manage_service.index')->with('success', 'Serivce Data Updated Successfully');
     }
 
     public function destroy($id)
     {
         $service = $this->service_model->singleData($id);
-        if($service)
-        {
+        if ($service) {
             if (!empty($service->image)) {
-                $existingImagePath = storage_path('app/public/') . $service->image;
-                if (file_exists($existingImagePath)) {
-                    unlink($existingImagePath);
-                }
+                // $existingImagePath = storage_path('app/public/') . $service->image;
+                // if (file_exists($existingImagePath)) {
+                //     unlink($existingImagePath);
+                // }
+                ImageDelete($service->image, '');
             }
             $service->delete();
         }
