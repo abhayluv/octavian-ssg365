@@ -4,7 +4,7 @@
     <div class="dass-midd-padd">
         @include('admin.layouts.admin_header')
         <div class="camp-create-sec create-admin-main-sec">
-            <div class="camp-midd-sec">
+            <div class="formwhitebg form-secton none-whitebg">
                 <div class="setting-midd-part">
                     <div class="task-detail-sec">
                         <div class="profile-form-section">

@@ -4,14 +4,13 @@
     <div class="dass-midd-padd">
         @include('admin.layouts.admin_header')
         <div class="camp-create-sec create-admin-main-sec">
-            <div class="camp-midd-sec">
+            <div class="formwhitebg form-secton none-whitebg">
                 <div class="setting-midd-part">
                     <div class="task-detail-sec">
                         <div class="profile-form-section">
                             <div class="profile-form-part">
                                 <div class="setting-middle-section">
-                                    <form class="items-center" action="{{ route('admin.sia_licence.store') }}"
-                                        method="POST" enctype="multipart/form-data">
+                                    <form class="items-center" action="{{ route('admin.sia_licence.store') }}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="flex-center-between setting-title-border">
                                             <div class="setting-h-con">
@@ -42,7 +41,7 @@
                                                     @enderror
                                                 </div>
                                             </div>
-                                       
+
                                             <div class="setting-row status-setting">
                                                 <div class="set-lebal-title">{{ __('Status') }}</div>
                                                 <div class="set-inputfield">

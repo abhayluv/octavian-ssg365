@@ -6885,6 +6885,7 @@ a.hide-detail-btn {
 
 .staff-leftbar-panel .left-navbar ul li.active a img {
     filter: brightness(0) invert(1);
+    opacity: 1;
 }
 
 .billing-addnew-modal .modal-header h6 {

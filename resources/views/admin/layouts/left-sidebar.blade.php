@@ -13,10 +13,10 @@
       <!-- <div class="search-form dark-inp"  data-bs-toggle="modal" data-bs-target="#search-modal"><input type="text" class="form-control form-input search-dark-icon" placeholder="Search"></div> -->
       <div class="left-navbar">
          <ul>
-            <li>
+            <li class="{{ (Request::segment(1) == 'admin' && Request::segment(2) == 'dashboard') ? 'active' : '' }}">
                <a href="{{ route('admin.dashboard') }}"><img src="{{ asset('images/bar-chart-square.svg')}}" alt=""> Dashboard</a>
             </li>
-            <li class="">
+            <li class="{{ (Request::segment(1) == 'admin' && Request::segment(2) == 'manage_services') ? 'active' : '' }}">
                <a href="{{ route('admin.manage_service.index') }}"><img src="{{ asset('images/setting-icons.svg')}}" alt=""> {{ __('Manage Service')}}</a>
             </li>
             <li class="">
@@ -27,8 +27,8 @@
                   <div class="dropdown">
                      <a href="#"><img src="{{ asset('images/setting-icons.svg')}}" alt="" style="vertical-align: middle;"> {{ __('Settings')}}</a>
                      <div class="dropdown-content">
-                           <a href="{{ route('admin.general_setting.index') }}">General Settings</a>
-                           <a href="{{ route('admin.intro_screen.index') }}">Intro Screen</a>
+                        <a href="{{ route('admin.general_setting.index') }}">General Settings</a>
+                        <a href="{{ route('admin.intro_screen.index') }}">Intro Screen</a>
                      </div>
                   </div>
                </div>
@@ -91,5 +91,3 @@
       <li><a href="{{ route('admin.logout')}}"><img src="{{ asset('images/logout-icon.svg')}}" alt=""> Logout</a></li>
    </ul>
 </div>
-
-
