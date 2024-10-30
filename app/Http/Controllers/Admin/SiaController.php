@@ -42,7 +42,8 @@ class SiaController extends Controller
         ]);
 
         $data = [
-            'licence_name' => $request->licence_name,
+            'sia_id' => $this->getUniqueId(),
+            'name' => $request->licence_name,
             'status' => $request->status
         ];
 
@@ -62,21 +63,23 @@ class SiaController extends Controller
 
     public function edit($id)
     {
+        $sia_id = base64_decode($id);
         $title = 'Edit Sia Licence';
-        $sia = $this->sia_model->singleData($id);
+        $sia = $this->sia_model->singleDataByWhere(['sia_id' => $sia_id]);
         return view('admin.sialicence.edit', compact('title', 'sia'));
     }
 
     public function update(Request $request, $id)
     {
+        $sia_id = base64_decode($id);
         $request->validate([
             'licence_name' => 'required',
         ]);
 
-        $sia = $this->sia_model->singleData($id);
+        $sia = $this->sia_model->singleDataByWhere(['sia_id' => $sia_id]);
 
         $data = [
-            'licence_name' => $request->licence_name,
+            'name' => $request->licence_name,
             'status' => $request->status
         ];
 
@@ -97,14 +100,15 @@ class SiaController extends Controller
         }
 
 
-        $update = $this->sia_model->updateData($data, ['id' => $id]);
+        $update = $this->sia_model->updateData($data, ['sia_id' => $sia_id]);
 
         return redirect()->route('admin.sia_licence.index')->with('success', 'Licence Updated Successfully');
     }
 
     public function destroy($id)
     {
-        $sialicence = $this->sia_model->singleData($id);
+        $sia_id = base64_decode($id);
+        $sialicence = $this->sia_model->singleDataByWhere(['sia_id' => $sia_id]);
         if ($sialicence) {
             if (!empty($sialicence->logo)) {
                 ImageDelete($sialicence->logo, '');
@@ -112,5 +116,15 @@ class SiaController extends Controller
             $sialicence->delete();
         }
         return redirect()->route('admin.sia_licence.index')->with('success', 'Licence Record Deleted Successfully');
+    }
+
+    public function getUniqueId()
+    {
+        $random_string = RendomString(15, 'number');
+        $checkId = $this->sia_model->singleDataByWhere(['sia_id' => $random_string]);
+        if (!empty($checkId)) {
+            $this->getUniqueId();
+        }
+        return $random_string;
     }
 }

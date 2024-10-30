@@ -1,12 +1,12 @@
 <?php
 
+use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\GeneralSettingController;
 use App\Http\Controllers\Admin\IntroScreenController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SiaController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
-use App\Http\Controllers\Auth\AuthController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -17,12 +17,11 @@ Route::get('/', function () {
     return redirect()->route('login');
 });
 
-Route::get('login', [AuthController::class, 'index'])->name('login');
-Route::post('verify', [AuthController::class, 'verify'])->name('verify_user');
-Route::post('store-user', [AuthController::class, 'store'])->name('user_store');
-Route::get('registration', [AuthController::class, 'registration'])->name('registration');
-
 Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('login', [AuthController::class, 'index'])->name('login');
+    Route::post('verify', [AuthController::class, 'verify'])->name('verify_user');
+    // Route::post('store-user', [AuthController::class, 'store'])->name('user_store');
+    // Route::get('registration', [AuthController::class, 'registration'])->name('registration');
 
     Route::middleware(['auth', 'admin'])->group(function () {
         Route::get('dashboard', [AuthController::class, 'dashboard'])->name('dashboard');

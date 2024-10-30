@@ -25,57 +25,59 @@ class IntroScreenController extends Controller
     public function save(Request $request)
     {
         $data = [];
-    
+
         foreach ($request->image as $index => $image) {
             $dataEntry = [
                 'title' => $request->title[$index] ?? null,
                 'id' => $request->id[$index] ?? null,
             ];
-            
+
             if (!empty($dataEntry['id'])) {
                 $existingRecord = $this->intro_screen_model->findById($dataEntry['id']);
-    
+
                 if ($existingRecord && !empty($existingRecord->image)) {
-                    $oldImagePath = storage_path('app/public/' . $existingRecord->image);
-                    if (file_exists($oldImagePath)) {
-                        unlink($oldImagePath);
-                    }
+                    // $oldImagePath = storage_path('app/public/' . $existingRecord->image);
+                    // if (file_exists($oldImagePath)) {
+                    //     unlink($oldImagePath);
+                    // }
+                    ImageDelete($existingRecord->image, '');
                 }
             }
-    
-           
+
+
             if ($request->hasFile('image') && $request->file('image')[$index]) {
-                $foldername = 'intro_images';
-                $uploadedImage = $request->file('image')[$index];
-                $path = Storage::putFile('public/' . $foldername, $uploadedImage);
-                $dataEntry['image'] = str_replace('public/', '', $path);
+                // $foldername = 'intro_images';
+                // $uploadedImage = $request->file('image')[$index];
+                // $path = Storage::putFile('public/' . $foldername, $uploadedImage);
+                // $dataEntry['image'] = str_replace('public/', '', $path);
+                $dataEntry['image'] = UploadImage($request->file('image')[$index], '', '', 'intro-screen');
             }
-    
+
             $data[] = $dataEntry;
         }
-    
+
         foreach ($data as $entry) {
             $this->intro_screen_model->updateOrCreateData($entry);
         }
-    
+
         return redirect()->back()->with('success', 'Data Saved Successfully');
     }
-    
 
-    public function destroy($id) 
+
+    public function destroy($id)
     {
         $existingRecord = $this->intro_screen_model->findById($id);
 
-        if($existingRecord)
-        {
+        if ($existingRecord) {
             if ($existingRecord && !empty($existingRecord->image)) {
-                $oldImagePath = storage_path('app/public/' . $existingRecord->image);
+                // $oldImagePath = storage_path('app/public/' . $existingRecord->image);
 
-                if (file_exists($oldImagePath)) {
-                    unlink($oldImagePath);
-                }
-            } 
-            
+                // if (file_exists($oldImagePath)) {
+                //     unlink($oldImagePath);
+                // }
+                ImageDelete($existingRecord->image, '');
+            }
+
             $existingRecord->delete();
 
             return redirect()->back()->with('success', 'Data Deleted Successfully');

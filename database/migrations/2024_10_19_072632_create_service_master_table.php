@@ -13,11 +13,14 @@ return new class extends Migration
     {
         Schema::create('service_master', function (Blueprint $table) {
             $table->id();
-            $table->string('image');
-            $table->string('service_name');
-            $table->boolean('status')->comment('0 = Inactive, 1 = Active');
+            $table->bigInteger('ser_id');
+            $table->text('name');
+            $table->text('image');
+            $table->tinyInteger('status')->comment('0 = Disable, 1 = Active');
             $table->timestamps();
             $table->softDeletes();
+
+            $table->index(['ser_id', 'name']);
         });
     }
 

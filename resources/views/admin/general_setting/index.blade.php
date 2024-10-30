@@ -10,8 +10,7 @@
                         <div class="profile-form-section">
                             <div class="profile-form-part">
                                 <div class="setting-middle-section">
-                                    <form class="items-center" action="{{ route('admin.general_setting.save') }}"
-                                        method="POST" enctype="multipart/form-data">
+                                    <form class="items-center" action="{{ route('admin.general_setting.save') }}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="flex-center-between setting-title-border">
                                             <div class="setting-h-con">
@@ -41,7 +40,7 @@
                                             <div class="setting-row">
                                                 <div class="set-lebal-title">{{ __('Current Logo')}}</div>
                                                 <div class="set-inputfield">
-                                                    <img src="{{ asset('storage/' . $general_setting->logo) }}" />
+                                                    <img src="{{ GetStoragePath($general_setting->logo) }}" />
                                                 </div>
                                             </div>
                                             @endif

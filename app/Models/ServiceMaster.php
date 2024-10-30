@@ -13,8 +13,9 @@ class ServiceMaster extends Model
     protected $table = 'service_master';
 
     protected $fillable = [
+        'ser_id',
+        'name',
         'image',
-        'service_name',
         'status'
     ];
 
@@ -27,6 +28,11 @@ class ServiceMaster extends Model
     public function singleData($id)
     {
         return static::where('id', $id)->first();
+    }
+
+    public function singleDataByWhere($where = [])
+    {
+        return static::where($where)->first();
     }
 
     public function getList($filterData = [], $pagination = true, $limit = 10, $orderBy = ['created_at', 'desc'])

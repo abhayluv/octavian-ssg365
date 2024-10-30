@@ -41,7 +41,8 @@ class ServiceController extends Controller
         ]);
 
         $data = [
-            'service_name' => $request->service_name,
+            'ser_id' => $this->getUniqueId(),
+            'name' => $request->service_name,
             'status' => $request->status
         ];
 
@@ -62,23 +63,25 @@ class ServiceController extends Controller
 
     public function edit($id)
     {
+        $ser_id = base64_decode($id);
         $title = 'Edit Service';
-        $service = $this->service_model->singleData($id);
+        $service = $this->service_model->singleDataByWhere(['ser_id' => $ser_id]);
         return view('admin.service.edit', compact('title', 'service'));
     }
 
     public function update(Request $request, $id)
     {
+        $ser_id = base64_decode($id);
         $request->validate([
             'service_name' => 'required',
         ]);
 
         $data = [
-            'service_name' => $request->service_name,
+            'name' => $request->service_name,
             'status' => $request->status
         ];
 
-        $service = $this->service_model->singleData($id);
+        $service = $this->service_model->singleDataByWhere(['ser_id' => $ser_id]);
 
         if ($request->hasFile('image')) {
             if (!empty($service->image)) {
@@ -96,14 +99,15 @@ class ServiceController extends Controller
             $data['image'] = UploadImage($request->file('image'), '', '', 'service');
         }
 
-        $update = $this->service_model->updateData($data, ['id' => $id]);
+        $update = $this->service_model->updateData($data, ['ser_id' => $ser_id]);
 
         return redirect()->route('admin.manage_service.index')->with('success', 'Serivce Data Updated Successfully');
     }
 
     public function destroy($id)
     {
-        $service = $this->service_model->singleData($id);
+        $ser_id = base64_decode($id);
+        $service = $this->service_model->singleDataByWhere(['ser_id' => $ser_id]);
         if ($service) {
             if (!empty($service->image)) {
                 // $existingImagePath = storage_path('app/public/') . $service->image;
@@ -115,5 +119,15 @@ class ServiceController extends Controller
             $service->delete();
         }
         return redirect()->route('admin.manage_service.index')->with('success', 'Serivce Data Deleted Successfully');
+    }
+
+    public function getUniqueId()
+    {
+        $random_string = RendomString(15, 'number');
+        $checkId = $this->service_model->singleDataByWhere(['ser_id' => $random_string]);
+        if (!empty($checkId)) {
+            $this->getUniqueId();
+        }
+        return $random_string;
     }
 }

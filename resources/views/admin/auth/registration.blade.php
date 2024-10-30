@@ -10,7 +10,7 @@
             <h3 class="ft-w-600">Create Your Account</h3>
          </div>
          <div class="on-bording-form-part">
-            <form class="items-center" method="POST" action="{{ route('user_store')}}">
+            <form class="items-center" method="POST" action="{{ route('admin.user_store')}}">
                @csrf
                <div class="mb-3">
                   <label class="form-label">Name</label>
@@ -18,9 +18,9 @@
                      <input type="text" class="form-control" name="name" placeholder="Enter Name">
                   </div>
                   @error('name')
-                     <span class="invalid-feedback text-danger" role="alert">
-                           <strong>{{ $message }}</strong>
-                     </span>
+                  <span class="invalid-feedback text-danger" role="alert">
+                     <strong>{{ $message }}</strong>
+                  </span>
                   @enderror
                </div>
                <div class="mb-3">
@@ -29,9 +29,9 @@
                      <input type="email" class="form-control" name="email" placeholder="Enter email address">
                   </div>
                   @error('email')
-                     <span class="invalid-feedback text-danger" role="alert">
-                           <strong>{{ $message }}</strong>
-                     </span>
+                  <span class="invalid-feedback text-danger" role="alert">
+                     <strong>{{ $message }}</strong>
+                  </span>
                   @enderror
                </div>
                <div class="mb-3">
@@ -41,9 +41,9 @@
                      <div class="form-mes-icon desk-none"><a href=""><img src="images/eye-icon.svg" alt=""></a></div>
                   </div>
                   @error('password')
-                     <span class="invalid-feedback text-danger" role="alert">
-                           <strong>{{ $message }}</strong>
-                     </span>
+                  <span class="invalid-feedback text-danger" role="alert">
+                     <strong>{{ $message }}</strong>
+                  </span>
                   @enderror
                </div>
                <div class="mb-3">
@@ -53,9 +53,9 @@
                      <div class="form-mes-icon desk-none"><a href=""><img src="images/eye-icon.svg" alt=""></a></div>
                   </div>
                   @error('confirm_pass')
-                     <span class="invalid-feedback text-danger" role="alert">
-                           <strong>{{ $message }}</strong>
-                     </span>
+                  <span class="invalid-feedback text-danger" role="alert">
+                     <strong>{{ $message }}</strong>
+                  </span>
                   @enderror
                </div>
 
@@ -65,4 +65,4 @@
          </div>
       </div>
    </div>
-@endsection
+   @endsection

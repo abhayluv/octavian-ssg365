@@ -38,40 +38,40 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($sia_data as $sia)
-                                        <tr>
-                                            <td>{{$loop->index + 1}}</td>
-                                            <td>{{$sia->licence_name}}</td>
-                                            <td>
-                                                @if($sia->status== 1)
-                                                    {{__('Active')}}
-                                                @else
-                                                    {{__('Deactive')}}
-                                                @endif
-                                            </td>
-                                            <td class="action-btn-width-setting">
-                                                <ul>
-                                                    <li>
-                                                        <a href="{{ route('admin.sia_licence.edit', $sia->id) }}" class="btn btn-white"><img src="{{ asset('images/edit-pen-icon.svg') }}" alt=""></a>
-                                                        <a href="javascript:void(0)" onclick="event.preventDefault(); if (confirm('Are you sure you want to delete this record?')) submitForm('delete-form-{{ $sia->id }}');" class="btn btn-white delete-package">
-                                                            <img src="{{ asset('images/trash-detete-icon.svg') }}" alt="">
-                                                        </a>
-                                                        <form id="delete-form-{{ $sia->id }}" action="{{ route('admin.sia_licence.delete', $sia->id) }}" method="post" class="d-none">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                        </form>
-                                                    </li>
+                                    @foreach($sia_data as $sia)
+                                    <tr>
+                                        <td>{{$loop->index + 1}}</td>
+                                        <td>{{$sia->name}}</td>
+                                        <td>
+                                            @if($sia->status== 1)
+                                            {{__('Active')}}
+                                            @else
+                                            {{__('Deactive')}}
+                                            @endif
+                                        </td>
+                                        <td class="action-btn-width-setting">
+                                            <ul>
+                                                <li>
+                                                    <a href="{{ route('admin.sia_licence.edit', base64_encode($sia->sia_id)) }}" class="btn btn-white"><img src="{{ asset('images/edit-pen-icon.svg') }}" alt=""></a>
+                                                    <a href="javascript:void(0)" onclick="event.preventDefault(); if (confirm('Are you sure you want to delete this record?')) submitForm('delete-form-{{ base64_encode($sia->sia_id) }}');" class="btn btn-white delete-package">
+                                                        <img src="{{ asset('images/trash-detete-icon.svg') }}" alt="">
+                                                    </a>
+                                                    <form id="delete-form-{{ base64_encode($sia->sia_id) }}" action="{{ route('admin.sia_licence.delete', base64_encode($sia->sia_id)) }}" method="post" class="d-none">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                    </form>
+                                                </li>
 
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                    @endforeach  
-                                                                
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+
                                 </tbody>
                             </table>
                         </div>
                     </div>
-                 
+
                 </div>
             </div>
         </div>

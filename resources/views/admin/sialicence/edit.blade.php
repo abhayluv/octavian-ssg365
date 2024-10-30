@@ -10,7 +10,7 @@
                         <div class="profile-form-section">
                             <div class="profile-form-part">
                                 <div class="setting-middle-section">
-                                    <form class="items-center" action="{{ route('admin.sia_licence.update', $sia->id) }}" method="POST" enctype="multipart/form-data">
+                                    <form class="items-center" action="{{ route('admin.sia_licence.update', base64_encode($sia->sia_id)) }}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="flex-center-between setting-title-border">
                                             <div class="setting-h-con">
@@ -25,7 +25,7 @@
                                             <div class="setting-row">
                                                 <div class="set-lebal-title">{{ __('Sia Licence Name')}}</div>
                                                 <div class="set-inputfield">
-                                                    <input type="text" name="licence_name" value="{{ old('licence_name', $sia->licence_name) }}" class="form-control prmcd" placeholder="Sia Licence Name">
+                                                    <input type="text" name="licence_name" value="{{ old('licence_name', $sia->name) }}" class="form-control prmcd" placeholder="Sia Licence Name">
                                                     @error('licence_name')
                                                     <span class="text-danger">{{ $message }}</span>
                                                     @enderror

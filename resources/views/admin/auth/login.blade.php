@@ -11,7 +11,7 @@
                 <p>{{ __('Please enter your details below.')}}</p>
             </div>
             <div class="on-bording-form-part">
-                <form class="items-center" method="POST" action="{{ route('verify_user')}}">
+                <form class="items-center" method="POST" action="{{ route('admin.verify_user')}}">
                     @csrf
                     <div class="mb-3">
                         <label class="form-label">{{ __('Email')}}</label>

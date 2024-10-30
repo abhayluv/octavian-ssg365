@@ -39,33 +39,33 @@
                                 </thead>
                                 <tbody>
                                     @foreach($service_data as $service)
-                                        <tr>
-                                            <td>{{$loop->index + 1}}</td>
-                                            <td>{{$service->service_name}}</td>
-                                            <td>
-                                                @if($service->status== 1)
-                                                    {{__('Active')}}
-                                                @else
-                                                    {{__('Deactive')}}
-                                                @endif
-                                            </td>
-                                            <td class="action-btn-width-setting">
-                                                <ul>
-                                                    <li>
-                                                        <a href="{{ route('admin.manage_service.edit', $service->id) }}" class="btn btn-white"><img src="{{ asset('images/edit-pen-icon.svg') }}" alt=""></a>
-                                                        <a href="javascript:void(0)" onclick="event.preventDefault(); if (confirm('Are you sure you want to delete this record?')) submitForm('delete-form-{{ $service->id }}');" class="btn btn-white delete-package">
-                                                            <img src="{{ asset('images/trash-detete-icon.svg') }}" alt="">
-                                                        </a>
-                                                        <form id="delete-form-{{ $service->id }}" action="{{ route('admin.manage_service.delete', $service->id) }}" method="post" class="d-none">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                        </form>
-                                                    </li>
+                                    <tr>
+                                        <td>{{$loop->index + 1}}</td>
+                                        <td>{{$service->name}}</td>
+                                        <td>
+                                            @if($service->status== 1)
+                                            {{__('Active')}}
+                                            @else
+                                            {{__('Deactive')}}
+                                            @endif
+                                        </td>
+                                        <td class="action-btn-width-setting">
+                                            <ul>
+                                                <li>
+                                                    <a href="{{ route('admin.manage_service.edit', base64_encode($service->ser_id)) }}" class="btn btn-white"><img src="{{ asset('images/edit-pen-icon.svg') }}" alt=""></a>
+                                                    <a href="javascript:void(0)" onclick="event.preventDefault(); if (confirm('Are you sure you want to delete this record?')) submitForm('delete-form-{{ base64_encode($service->ser_id) }}');" class="btn btn-white delete-package">
+                                                        <img src="{{ asset('images/trash-detete-icon.svg') }}" alt="">
+                                                    </a>
+                                                    <form id="delete-form-{{ base64_encode($service->ser_id) }}" action="{{ route('admin.manage_service.delete', base64_encode($service->ser_id)) }}" method="post" class="d-none">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                    </form>
+                                                </li>
 
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                    @endforeach                                   
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

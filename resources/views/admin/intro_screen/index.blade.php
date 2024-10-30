@@ -10,8 +10,13 @@
                         <div class="profile-form-section">
                             <div class="profile-form-part">
                                 <div class="setting-middle-section">
-                                    <form class="items-center" action="{{ route('admin.intro_screen.save') }}"
-                                          method="POST" id="form" enctype="multipart/form-data">
+                                    <!--  Start:: Delete Row -->
+                                    <form action="" id="deleteRow" method="POST" style="display:inline;" class="d-none">
+                                        @csrf
+                                        @method('DELETE')
+                                    </form>
+                                    <!--  End:: Delete Row -->
+                                    <form class="items-center" action="{{ route('admin.intro_screen.save') }}" method="POST" id="form" enctype="multipart/form-data">
                                         @csrf
                                         <div class="flex-center-between setting-title-border">
                                             <div class="setting-h-con">
@@ -23,72 +28,68 @@
                                         </div>
 
                                         @if(!empty($intro_screen_data))
-                                            <div class="table-border-none staff-table addremove-table">
-                                                <div class="commontable tablesection invoice-table table-responsive mob-border-none odd-even-table add-remove-table-sec">
-                                                    <table class="table">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>{{ __('Image') }}</th>
-                                                                <th>{{ __('Existing Image') }}</th>
-                                                                <th>{{ __('Title') }}</th>
-                                                                <th>{{ __('Action') }}</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody id="introscreen">
-                                                            @foreach($intro_screen_data as $intro_screen)
-                                                            <tr>
-                                                                <input type="hidden" name="id[]" value="{{ $intro_screen->id }}" />
-                                                                <td>
-                                                                    <input type="file" name="image[]" class="form-control prmcd" data-existing-image="{{ $intro_screen->image ? 'true' : 'false' }}">
-                                                                </td>
-                                                                <td>
-                                                                    <img src="{{ asset('storage/' . $intro_screen->image) }}" />
-                                                                </td>
-                                                                <td>
-                                                                    <input type="text" placeholder="" value="{{ $intro_screen->title }}" name="title[]" autocomplete="off" class="form-control" />
-                                                                </td>
-                                                                <td>
-                                                                    <form action="{{ route('admin.intro_screen.delete', $intro_screen->id) }}" method="POST" style="display:inline;">
-                                                                        @csrf
-                                                                        @method('DELETE')
-                                                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this Record?');">{{ __('Remove') }}</button>
-                                                                    </form>
-                                                                </td>
-                                                            </tr>
-                                                            @endforeach
-                                                        </tbody>
-                                                    </table>
-                                                    <div class="addmorerowbtn">
-                                                        <a href="javascript:void(0);" class="btn btn-primary" onclick="add_row()">{{ __('Add Row') }}</a>
-                                                    </div>
+                                        <div class="table-border-none staff-table addremove-table">
+                                            <div class="commontable tablesection invoice-table table-responsive mob-border-none odd-even-table add-remove-table-sec">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>{{ __('Image') }}</th>
+                                                            <th>{{ __('Existing Image') }}</th>
+                                                            <th>{{ __('Title') }}</th>
+                                                            <th>{{ __('Action') }}</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="introscreen">
+                                                        @foreach($intro_screen_data as $intro_screen)
+                                                        <tr>
+                                                            <input type="hidden" name="id[]" value="{{ $intro_screen->id }}" />
+                                                            <td>
+                                                                <input type="file" name="image[]" class="form-control prmcd" data-existing-image="{{ $intro_screen->image ? 'true' : 'false' }}">
+                                                            </td>
+                                                            <td>
+                                                                <img src="{{ GetStoragePath($intro_screen->image) }}" />
+                                                            </td>
+                                                            <td>
+                                                                <input type="text" placeholder="" value="{{ $intro_screen->title }}" name="title[]" autocomplete="off" class="form-control" />
+                                                            </td>
+                                                            <td>
+                                                                <button type="button" class="btn btn-danger" onclick="removeRow('{{ $intro_screen->id }}')">{{ __('Remove') }}</button>
+                                                            </td>
+                                                        </tr>
+                                                        @endforeach
+                                                    </tbody>
+                                                </table>
+                                                <div class="addmorerowbtn">
+                                                    <a href="javascript:void(0);" class="btn btn-primary" onclick="add_row()">{{ __('Add Row') }}</a>
                                                 </div>
                                             </div>
+                                        </div>
                                         @else
-                                            <div class="table-border-none staff-table addremove-table">
-                                                <div class="commontable tablesection invoice-table table-responsive mob-border-none odd-even-table add-remove-table-sec">
-                                                    <table class="table">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>{{ __('Image') }}</th>
-                                                                <th>{{ __('Title') }}</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody id="introscreen">
-                                                            <tr>
-                                                                <td>
-                                                                    <input type="file" name="image[]" class="form-control prmcd">
-                                                                </td>
-                                                                <td>
-                                                                    <input type="text" placeholder="" value="" name="title[]" autocomplete="off" class="form-control" />
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                    <div class="addmorerowbtn">
-                                                        <a href="javascript:void(0);" class="btn btn-primary" onclick="add_row()">{{ __('Add Row') }}</a>
-                                                    </div>
+                                        <div class="table-border-none staff-table addremove-table">
+                                            <div class="commontable tablesection invoice-table table-responsive mob-border-none odd-even-table add-remove-table-sec">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>{{ __('Image') }}</th>
+                                                            <th>{{ __('Title') }}</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="introscreen">
+                                                        <tr>
+                                                            <td>
+                                                                <input type="file" name="image[]" class="form-control prmcd">
+                                                            </td>
+                                                            <td>
+                                                                <input type="text" placeholder="" value="" name="title[]" autocomplete="off" class="form-control" />
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <div class="addmorerowbtn">
+                                                    <a href="javascript:void(0);" class="btn btn-primary" onclick="add_row()">{{ __('Add Row') }}</a>
                                                 </div>
                                             </div>
+                                        </div>
                                         @endif
                                     </form>
                                 </div>
@@ -169,5 +170,14 @@
             }
         });
     });
+
+    function removeRow(id) {
+        if (confirm('Are you sure you want to delete this Record?')) {
+            let action = "{{ route('admin.intro_screen.delete', ':id') }}";
+            action = action.replace(':id', id);
+            $('#deleteRow').attr('action', action);
+            $('#deleteRow').submit();
+        }
+    }
 </script>
 @endsection

@@ -13,11 +13,14 @@ return new class extends Migration
     {
         Schema::create('sia_licences', function (Blueprint $table) {
             $table->id();
-            $table->string('licence_name');
-            $table->string('logo');
-            $table->boolean('status')->comment('0 = Inactive, 1 = Active');
+            $table->bigInteger('sia_id');
+            $table->text('name');
+            $table->text('logo');
+            $table->tinyInteger('status')->comment('0 = Disable, 1 = Active');
             $table->timestamps();
             $table->softDeletes();
+
+            $table->index(['sia_id', 'name']);
         });
     }
 

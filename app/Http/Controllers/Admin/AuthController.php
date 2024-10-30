@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -22,21 +22,21 @@ class AuthController extends Controller
             'email' => 'required',
             'password' => 'required',
         ]);
-   
+
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
             return redirect()->intended('admin/dashboard')
-                        ->withSuccess('You have Successfully loggedin');
+                ->withSuccess('You have Successfully loggedin');
         }
-        return redirect("login")->withError('You have entered invalid credentials');
+        return redirect("admin.login")->withError('You have entered invalid credentials');
     }
 
     public function dashboard()
     {
         // if(Auth::check()){
-            return view('admin.dashboard');
+        return view('admin.dashboard');
         // }
-  
+
         // return redirect("login")->withSuccess('Opps! You do not have access');
     }
 
@@ -51,29 +51,29 @@ class AuthController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8',
-            'confirm_pass'=> 'required|same:password',
+            'confirm_pass' => 'required|same:password',
         ]);
-           
+
         $data = $request->all();
         $user = $this->create($data);
 
-        return redirect()->route('login')->withSuccess('Registration Successfull! Please Login.');
+        return redirect()->route('admin.login')->withSuccess('Registration Successfull! Please Login.');
     }
 
     public function create(array $data)
     {
-      return User::create([
-        'name' => $data['name'],
-        'email' => $data['email'],
-        'password' => Hash::make($data['password'])
-      ]);
+        return User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password'])
+        ]);
     }
 
     public function logout()
     {
         Session::flush();
         Auth::logout();
-  
-        return Redirect('login');
+
+        return Redirect()->route('admin.login');
     }
 }

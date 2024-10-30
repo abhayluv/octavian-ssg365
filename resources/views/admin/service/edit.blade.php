@@ -10,7 +10,7 @@
                         <div class="profile-form-section">
                             <div class="profile-form-part">
                                 <div class="setting-middle-section">
-                                    <form class="items-center" action="{{ route('admin.manage_service.update', $service->id) }}" method="POST" enctype="multipart/form-data">
+                                    <form class="items-center" action="{{ route('admin.manage_service.update', base64_encode($service->ser_id)) }}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="flex-center-between setting-title-border">
                                             <div class="setting-h-con">
@@ -25,7 +25,7 @@
                                             <div class="setting-row">
                                                 <div class="set-lebal-title">{{ __('Service Name')}}</div>
                                                 <div class="set-inputfield">
-                                                    <input type="text" name="service_name" value="{{ old('service_name', $service->service_name) }}" class="form-control prmcd" placeholder="Service Name">
+                                                    <input type="text" name="service_name" value="{{ old('service_name', $service->name) }}" class="form-control prmcd" placeholder="Service Name">
                                                     @error('service_name')
                                                     <span class="text-danger">{{ $message }}</span>
                                                     @enderror
