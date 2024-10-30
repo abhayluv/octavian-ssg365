@@ -19,10 +19,10 @@
             <li class="{{ (Request::segment(1) == 'admin' && Request::segment(2) == 'manage_services') ? 'active' : '' }}">
                <a href="{{ route('admin.manage_service.index') }}"><img src="{{ asset('images/setting-icons.svg')}}" alt=""> {{ __('Manage Service')}}</a>
             </li>
-            <li class="">
+            <li class="{{ (Request::segment(1) == 'admin' && Request::segment(2) == 'sia_licences') ? 'active' : '' }}">
                <a href="{{ route('admin.sia_licence.index') }}"><img src="{{ asset('images/setting-icons.svg')}}" alt=""> {{ __('Manage Sia Licence')}}</a>
             </li>
-            <li class="">
+            <li class="{{ (Request::segment(1) == 'admin' && (Request::segment(2) == 'general_settings' || Request::segment(2) == 'intro_screen')) ? 'active' : '' }}">
                <div class="sidebar">
                   <div class="dropdown">
                      <a href="#"><img src="{{ asset('images/setting-icons.svg')}}" alt="" style="vertical-align: middle;"> {{ __('Settings')}}</a>
