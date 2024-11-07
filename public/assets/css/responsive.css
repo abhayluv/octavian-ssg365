@@ -1,0 +1,41 @@
+@media (max-width: 991px) {
+
+ /* .container {max-width: 720px;}     */
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px)
+{	
+
+	
+	
+}
+
+
+
+@media (max-width: 767px) {
+
+
+}
+
+
+@media (max-width: 575px) {
+	
+
+
+}
+
+
+@media (max-width: 479px) {
+
+}
+
+@media (max-width: 380px) {
+
+    .intro-bannerimg {height: 450px;}
+
+}
+
+
+	
+img {max-width: 100%; height: auto;}

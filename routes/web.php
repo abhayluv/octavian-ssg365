@@ -1,12 +1,21 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
+
+/* Start:: Admin Controller */
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\GeneralSettingController;
 use App\Http\Controllers\Admin\IntroScreenController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SiaController;
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Artisan;
+/* End:: Admin Controller */
+
+/* Start:: Application Controller */
+use App\Http\Controllers\Application\AppLoginSystemController;
+/* End:: Application Controller */
+
+
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -17,6 +26,19 @@ Route::get('/', function () {
     return redirect()->route('login');
 });
 
+Route::prefix('app')->name('app.')->group(function () {
+    Route::get('/', [AppLoginSystemController::class, 'splashScreen'])->name('splash');
+    Route::get('intro', [AppLoginSystemController::class, 'introScreen'])->name('intro');
+    Route::get('signin_role', [AppLoginSystemController::class, 'signinRoleScreen'])->name('signin_role');
+    Route::get('signin_email', [AppLoginSystemController::class, 'signinEmailScreen'])->name('signin_email');
+    Route::get('signin_phone', [AppLoginSystemController::class, 'signinPhoneScreen'])->name('signin_phone');
+    Route::get('signin_mpin', [AppLoginSystemController::class, 'signinMpinScreen'])->name('signin_mpin');
+    Route::get('signup_role', [AppLoginSystemController::class, 'signupRoleScreen'])->name('signup_role');
+    Route::get('signup/{role}', [AppLoginSystemController::class, 'signupEmailScreen'])->name('signup_email');
+    Route::post('signup_email_send', [AppLoginSystemController::class, 'signupEmailSend'])->name('signup_email_send');
+});
+
+/* Start:: Web Application */
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('login', [AuthController::class, 'index'])->name('login');
     Route::post('verify', [AuthController::class, 'verify'])->name('verify_user');
@@ -57,6 +79,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         });
     });
 });
+/* End:: Web Application */
 
 Route::get('/clear', function () {
     // Config::set('app.debug', true);

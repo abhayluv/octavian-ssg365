@@ -132,3 +132,25 @@ if (!function_exists('RendomString')) {
         return str_shuffle($code);
     }
 }
+/* =====
+    System Roles
+   =====*/
+if (!function_exists('SystemRoles')) {
+    function SystemRoles($number = '', $name = '')
+    {
+        $data = [
+            '1' => 'master admin',
+            '2' => 'admin',
+            '3' => 'officer', // guard
+            '4' => 'client'
+        ];
+        if ($number != '' && $name == '') {
+            return $data[$number];
+        }
+        if ($number == '' && $name != '') {
+            $key = array_search($name, $data);
+            return $data[$key];
+        }
+        return $data;
+    }
+}
