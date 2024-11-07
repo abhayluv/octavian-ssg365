@@ -17,9 +17,11 @@ class AdminAuth
     public function handle(Request $request, Closure $next): Response
     {
         if (!Auth::check()) {
-            return redirect('admin/login')->with('error', 'You must be an admin to access this page.');
+            return redirect()->route('admin.login')->with('error', 'You must be an admin to access this page.');
+        } else if (Auth::user()->role != 1) {
+            return redirect()->route('admin.login')->with('error', 'You must be an admin to access this page.');
         }
-        
+
         return $next($request);
     }
 }

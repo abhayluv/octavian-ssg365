@@ -9,6 +9,9 @@
             <div class="form-title">
                 <h3 class="ft-w-600">{{ __('Login')}}</h3>
                 <p>{{ __('Please enter your details below.')}}</p>
+                @if(Session('error'))
+                <p class="text-danger">{{ session('error') }}</p>
+                @endif
             </div>
             <div class="on-bording-form-part">
                 <form class="items-center" method="POST" action="{{ route('admin.verify_user')}}">

@@ -24,11 +24,12 @@ class AuthController extends Controller
         ]);
 
         $credentials = $request->only('email', 'password');
+        $credentials['role'] = 1;
         if (Auth::attempt($credentials)) {
             return redirect()->intended('admin/dashboard')
                 ->withSuccess('You have Successfully loggedin');
         }
-        return redirect("admin.login")->withError('You have entered invalid credentials');
+        return redirect()->route('admin.login')->withError('You have entered invalid credentials');
     }
 
     public function dashboard()
