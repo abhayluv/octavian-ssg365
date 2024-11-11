@@ -22,21 +22,21 @@ class IntroScreen extends Model
     {
         return static::create($data);
     }
-    
+
     public function updateOrCreateData(array $data)
     {
         return static::updateOrCreate(
-            ['id' => $data['id']], 
+            ['id' => $data['id']],
             [
-                'image' => $data['image'] ?? null, 
-                'title' => $data['title'], 
+                'image' => $data['image'] ?? null,
+                'title' => $data['title'],
             ]
         );
     }
 
     public function findById($id)
     {
-        return static::find($id); 
+        return static::find($id);
     }
 
     public function getAllData()
@@ -45,5 +45,4 @@ class IntroScreen extends Model
         return $data->isEmpty() ? null : $data;
     }
     /* --- End:: Query --- */
-
 }

@@ -5,18 +5,30 @@ namespace App\Http\Controllers\Application;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Models\GeneralSetting;
+use App\Models\IntroScreen;
+
 class AppLoginSystemController extends Controller
 {
+    public $general_setting_model, $intro_screen_model;
+    public function __construct()
+    {
+        $this->general_setting_model = new GeneralSetting;
+        $this->intro_screen_model = new IntroScreen;
+    }
+
     public function splashScreen()
     {
         $title = 'Splash Screen';
-        return view('Application.LoginSystem.splash-screen', compact('title'));
+        $general_setting = $this->general_setting_model->getLastInsertedId();
+        return view('Application.LoginSystem.splash-screen', compact('title', 'general_setting'));
     }
 
     public function introScreen()
     {
         $title = 'Intro Screen';
-        return view('Application.LoginSystem.intro-screen', compact('title'));
+        $intro_screen_data = $this->intro_screen_model->getAllData();
+        return view('Application.LoginSystem.intro-screen', compact('title', 'intro_screen_data'));
     }
 
     public function signinRoleScreen()

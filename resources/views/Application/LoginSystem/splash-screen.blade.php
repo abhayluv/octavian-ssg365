@@ -2,7 +2,7 @@
 @section('content')
 <div class="flex-center-center splash-screen">
     <div class="container">
-        <div class="splash-logo" data-aos="fade-down" data-aos-delay="100"><a><img src="{{ asset('assets/images/logo.png') }}" alt=""></a></div>
+        <div class="splash-logo" data-aos="fade-down" data-aos-delay="100"><a><img src="{{ GetStoragePath($general_setting->logo) }}" alt=""></a></div>
     </div>
 </div>
 @endsection

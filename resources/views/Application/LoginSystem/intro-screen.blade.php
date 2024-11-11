@@ -4,7 +4,19 @@
     <div class="container p-0">
         <div class="swiper mySwiper intro-slider">
             <div class="swiper-wrapper">
+                @if(!empty($intro_screen_data))
+                @foreach($intro_screen_data as $intro_screen)
                 <div class="swiper-slide">
+                    <div class="intro-bannerimg">
+                        <a><img src="{{ GetStoragePath($intro_screen->image) }}" alt="{{ $intro_screen->title }}"></a>
+                    </div>
+                    <div class="info-banner-content">
+                        <h1>{{ $intro_screen->title }}</h1>
+                    </div>
+                </div>
+                @endforeach
+                @endif
+                <!-- <div class="swiper-slide">
                     <div class="intro-bannerimg">
                         <a href="login.html"><img src="{{ asset('assets/images/intro-slider-img-1.jpg') }}" alt=""></a>
                     </div>
@@ -27,7 +39,7 @@
                     <div class="info-banner-content">
                         <h1>Mobile Patrols<br>Security</h1>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="swiper-pagination"></div>
         </div>

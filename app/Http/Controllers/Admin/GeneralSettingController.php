@@ -26,7 +26,6 @@ class GeneralSettingController extends Controller
     public function save(Request $request)
     {
         $general_setting = $this->general_setting_model->singleData($request->general_setting_id);
-
         if ($general_setting) {
             $data = [
                 'login_screen_text' => $request->login_screen_text,

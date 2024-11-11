@@ -25,8 +25,7 @@ class IntroScreenController extends Controller
     public function save(Request $request)
     {
         $data = [];
-
-        foreach ($request->image as $index => $image) {
+        foreach ($request->title as $index => $title) {
             $dataEntry = [
                 'title' => $request->title[$index] ?? null,
                 'id' => $request->id[$index] ?? null,

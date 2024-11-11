@@ -23,7 +23,7 @@ use App\Http\Controllers\Application\AppLoginSystemController;
 
 // Route::get('/', [AuthController::class, 'index'])->name('login');
 Route::get('/', function () {
-    return redirect()->route('login');
+    return redirect()->route('admin.login');
 });
 
 Route::prefix('app')->name('app.')->group(function () {
