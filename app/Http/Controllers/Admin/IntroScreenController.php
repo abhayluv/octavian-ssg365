@@ -30,28 +30,28 @@ class IntroScreenController extends Controller
                 'title' => $request->title[$index] ?? null,
                 'id' => $request->id[$index] ?? null,
             ];
-
-            if (!empty($dataEntry['id'])) {
-                $existingRecord = $this->intro_screen_model->findById($dataEntry['id']);
-
-                if ($existingRecord && !empty($existingRecord->image)) {
-                    // $oldImagePath = storage_path('app/public/' . $existingRecord->image);
-                    // if (file_exists($oldImagePath)) {
-                    //     unlink($oldImagePath);
-                    // }
-                    ImageDelete($existingRecord->image, '');
-                }
-            }
-
-
-            if ($request->hasFile('image') && $request->file('image')[$index]) {
+            if ($request->hasFile('image') && isset($request->file('image')[$index]) && $request->file('image')[$index]) {
                 // $foldername = 'intro_images';
                 // $uploadedImage = $request->file('image')[$index];
                 // $path = Storage::putFile('public/' . $foldername, $uploadedImage);
                 // $dataEntry['image'] = str_replace('public/', '', $path);
                 $dataEntry['image'] = UploadImage($request->file('image')[$index], '', '', 'intro-screen');
-            }
 
+                if (!empty($dataEntry['id'])) {
+                    $existingRecord = $this->intro_screen_model->findById($dataEntry['id']);
+
+                    if ($existingRecord && !empty($existingRecord->image)) {
+                        // $oldImagePath = storage_path('app/public/' . $existingRecord->image);
+                        // if (file_exists($oldImagePath)) {
+                        //     unlink($oldImagePath);
+                        // }
+                        ImageDelete($existingRecord->image, '');
+                    }
+                }
+            } else {
+                $existingRecord = $this->intro_screen_model->findById($dataEntry['id']);
+                $dataEntry['image'] = $existingRecord->image;
+            }
             $data[] = $dataEntry;
         }
 
